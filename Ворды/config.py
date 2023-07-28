@@ -1,0 +1,4 @@
+community_token = 'vk1.a.sWqx81s8-CqovWTyOYkiC2KOSXPjIw3vJVXzdxlvaSpQX_anHIZL8hH7ndb71ow7a3aHBHumWgnG4io9DrwOdDZvyC5BzFg5w0VKOrDpuTVTj8-auiiZtAApLoLi9BEVoEUHg9f5yPLtOPEt-DjyE-RO2Rgvi7e_cuptJKasQv4hXnEGiLYdaYwZk-CzSJ4so0S6Bu-dveA_sTjJmN7Big'
+acces_token = 'vk1.a.0ZeKFD1mqLnYpxt9j-RvpJ_jZErUbDSoQN2pLYtrUWynDON_eVUeJ2RTOe94r3L4l_B2ekch5LQvppYYBu4JgtCDoFIeCd0qurrdS9aoS-foXoHjZ3rIJLdMj2lqQVyWp-h9yv5s9nkV9g5GIrhEy5igaHWL8jxFfWbQaTOHu2u7QbZFX8drGgjC1uFqJdiUCnm-mrEcbFW8oRivX-kFxw'
+db_url_object = 'postgresql+psycopg2://postgres:123@localhost/VK_bot'
+#db_url_object = "postgresql+psycopg2://postgres:123@localhost/VK_Bot"

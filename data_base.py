@@ -1,0 +1,35 @@
+import sqlalchemy as sq
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import create_engine, MetaData
+from sqlalchemy.orm import Session
+from config import db_url_object
+
+metadata = MetaData()
+Base = declarative_base()
+
+class Viewed(Base):
+    __tablename__ = 'viewed'
+    profile_id = sq.Column(sq.Integer, primary_key = True)
+    worksheet_id = sq.Column(sq.Integer, primary_key = True)
+
+class DBTools:
+    def __init__(self, engine):
+        self.engine = engine
+
+    def add_user(engine, profile_id, worksheet_id):
+        with Session(engine) as session:
+            to_bd = Viewed(profile_id = profile_id, worksheet_id = worksheet_id)
+            session.add(to_bd)
+            session.commit()
+
+    def check_user(engine, profile_id, worksheet_id):
+        with Session(engine) as session:
+            from_bd = session.query(Viewed).filter(Viewed.profile_id == profile_id, Viewed.worksheet_id == worksheet_id).first()
+            return True if from_bd else False
+    
+if __name__ == '__main__':
+    engine = create_engine(db_url_object)
+    Base.metadata.create_all(engine)
+    #DBTools.add_user(engine, 1271845, 12675726)
+    #res = DBTools.check_user(engine, 12534556, 125376548)
+    #print(res)
