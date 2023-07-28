@@ -32,6 +32,10 @@ class BotInterface():
                 if event.text.lower() == 'привет':
                     self.params = self.vk_tools.get_profile_info(event.user_id)
                     self.message_send(event.user_id, f'Привет, {self.params["name"]}')
+                    if not self.params['city']:
+                        self.city_change(event.user_id)
+                    if not self.params['year']:
+                        self.age_change(event.user_id)
 
                 elif event.text.lower() == 'поиск':
                     self.message_send(event.user_id, 'Начинаем поиск')
@@ -59,14 +63,18 @@ class BotInterface():
 
                         self.message_send(event.user_id, f'имя: {worksheet["name"]} ссылка: vk.com/{worksheet["id"]}', attachment = photo_string)
 
-                
 
                 elif event.text.lower() == 'пока':
                     self.message_send(event.user_id, 'До новых встреч')
                 else:
                     self.message_send(event.user_id, 'Уточните запрос')
 
+    def city_change(self, user_id):
+        self.message_send(user_id, 'Уточните город Вашего проживания в настройках ВК')
 
+    def age_change(self, user_id):
+        self.message_send(user_id, 'Уточните Ваш возраст в настройках ВК')
+        
 
 if __name__ == '__main__':
     bot_interface = BotInterface(community_token, acces_token, engine = create_engine())
